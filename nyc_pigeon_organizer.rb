@@ -1,21 +1,3 @@
-pigeon_data = {
-  :color => {
-    :purple => ["Theo", "Peter Jr.", "Lucky"],
-    :grey => ["Theo", "Peter Jr.", "Ms. K"],
-    :white => ["Queenie", "Andrew", "Ms. K", "Alex"],
-    :brown => ["Queenie", "Alex"]
-  },
-  :gender => {
-    :male => ["Alex", "Theo", "Peter Jr.", "Andrew", "Lucky"],
-    :female => ["Queenie", "Ms. K"]
-  },
-  :lives => {
-    "Subway" => ["Theo", "Queenie"],
-    "Central Park" => ["Alex", "Ms. K", "Lucky"],
-    "Library" => ["Peter Jr."],
-    "City Hall" => ["Andrew"]
-  }
-}
 
 
 def nyc_pigeon_organizer(data)
@@ -23,9 +5,31 @@ def nyc_pigeon_organizer(data)
 	name_array = data[:gender][:male] + data[:gender][:female]
 	name_array.each do |name|
 		new_hash[name] = {
-			:color => "", 
-			:gender => "", 
-			:lives => ""}
+			:color => [], 
+			:gender => [], 
+			:lives => []
+		}
 	end
-	new_hash
+  data[:color].each do |item|
+    name_array.each do |name|
+      if item[1].include? name
+        new_hash[name][:color] << item[0].to_s
+      end
+    end
+  end
+  data[:gender].each do |item|
+    name_array.each do |name|
+      if item[1].include? name
+        new_hash[name][:gender] << item[0].to_s
+      end
+    end
+  end
+
+  data[:lives].each do |item|
+    name_array.each do |name|
+      if item[1].include? name
+        new_hash[name][:lives] << item[0].to_s
+      end
+    end
+  end
 end
