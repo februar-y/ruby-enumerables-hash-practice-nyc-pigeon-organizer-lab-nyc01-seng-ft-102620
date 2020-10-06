@@ -33,4 +33,7 @@ def nyc_pigeon_organizer(data)
       end
     end
   end
+  new_hash = new_hash.inject({}){|memo,(k,v)| memo[k.to_sym] = v; 
+  memo}
+  new_hash
 end
