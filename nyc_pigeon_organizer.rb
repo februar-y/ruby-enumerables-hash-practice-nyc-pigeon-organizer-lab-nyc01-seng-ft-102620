@@ -22,7 +22,6 @@ pigeon_data = {
 def nyc_pigeon_organizer(data)
 	new_hash = {}
 	name_array = data[:gender][:male] + data[:gender][:female]
-	name_array = name_array.map{|name| name.to_sym}
 	name_array.each do |name|
 		new_hash[name] = {
 			:color => [], 
