@@ -19,7 +19,13 @@ pigeon_data = {
 
 
 def nyc_pigeon_organizer(data)
-  data
+	new_hash = {}
+	name_array = data[:gender][:male] + data[:gender][:female]
+	name_array.each do |name|
+		new_hash[name] = {
+			:color => "", 
+			:gender => "", 
+			:lives => ""}
+	end
+	new_hash
 end
-
-nyc_pigeon_organizer(pigeon_data)
